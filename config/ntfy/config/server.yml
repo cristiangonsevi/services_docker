@@ -1,0 +1,13 @@
+# Minimal ntfy server configuration for private instance
+base-url: "http://localhost:8094"
+attachment-cache-dir: "/var/cache/ntfy/attachments"
+auth-file: "/var/cache/ntfy/user.db"
+auth-default-access: "deny-all"
+# Uncomment and set users as needed:
+# auth-users:
+#   - "admin:<bcrypt_hash>:admin"
+#   - "user:<bcrypt_hash>:user"
+# auth-access:
+#   - "admin:*:rw"
+#   - "user:public:rw"
+#   - "*:announcements:ro"

@@ -1,0 +1,8 @@
+server:
+  sources:
+    - path: /folder
+      config:
+        defaultEnabled: true
+  cacheDir: /home/filebrowser/tmp
+auth:
+  adminUsername: admin

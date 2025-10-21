@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  ntfy:
+    image: binwiederhier/ntfy:latest
+    container_name: ntfy
+    command: ["serve"]
+    environment:
+      - TZ=UTC
+    ports:
+      - "8094:80"
+    volumes:
+      - ../../config/ntfy/cache:/var/cache/ntfy
+      - ../../config/ntfy/config:/etc/ntfy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 64M
+        reservations:
+          cpus: '0.05'
+          memory: 32M

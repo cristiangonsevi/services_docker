@@ -1,0 +1,9 @@
+services:
+  bugsink:
+    image: bugsink/bugsink
+    container_name: bugsink
+    env_file:
+      - .env
+    ports:
+      - "8100:8000"
+    restart: unless-stopped

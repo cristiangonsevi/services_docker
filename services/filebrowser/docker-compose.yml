@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  filebrowser:
+    image: gtstef/filebrowser:beta
+    environment:
+      FILEBROWSER_CONFIG: "data/config.yaml"
+      FILEBROWSER_ADMIN_PASSWORD: ${FILEBROWSER_ADMIN_PASSWORD:-change-me}
+      # TZ: "America/Argentina/Buenos_Aires"
+    user: filebrowser
+    volumes:
+      - ../:/folder
+      - ./data:/home/filebrowser/data
+      - ./tmp:/home/filebrowser/tmp
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: 128M
+        reservations:
+          cpus: '0.05'
+          memory: 64M

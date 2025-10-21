@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: rabbitmq
+    hostname: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:-admin}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:-changeMeStrong!}
+      RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_DEFAULT_VHOST:-/}
+    ports:
+      - "5672:5672"   # AMQP
+      - "15672:15672" # Management UI
+    volumes:
+      - ../../data/rabbitmq:/var/lib/rabbitmq
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        reservations:
+          cpus: '0.05'
+          memory: 64M

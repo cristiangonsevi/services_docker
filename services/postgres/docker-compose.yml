@@ -1,7 +1,7 @@
 services:
   postgres_service:
     image: postgres:18-alpine
-    container_name: db-postgres
+    container_name: postgres_container
     restart: unless-stopped
     env_file: .env
     environment:
@@ -34,7 +34,7 @@ services:
 
   backup_service:
     image: postgres:18-alpine
-    container_name: postgres-backup
+    container_name: postgres_backup_container
     depends_on:
       postgres_service:
         condition: service_healthy

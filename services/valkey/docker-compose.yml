@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  valkey:
+    image: valkey/valkey:8.1.4-alpine
+    container_name: valkey
+    command: ["valkey-server", "/usr/local/etc/valkey/valkey.conf"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - ../../config/valkey:/data
+      - ../../config/valkey/valkey.conf:/usr/local/etc/valkey/valkey.conf:ro
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: 128M
+        reservations:
+          cpus: '0.05'
+          memory: 64M

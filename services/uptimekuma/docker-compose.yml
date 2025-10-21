@@ -1,0 +1,19 @@
+services:
+  uptimekuma:
+    image: louislam/uptime-kuma:1.23.17-alpine
+    container_name: uptimekuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - ../../data/uptimekuma:/app/data
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+        reservations:
+          cpus: '0.10'
+          memory: 128M
