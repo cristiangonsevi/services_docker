@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  syncthing:
+    image: syncthing/syncthing:latest
+    container_name: syncthing
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Argentina/Buenos_Aires
+    ports:
+      - "8384:8384"   # Web UI
+      - "22000:22000/tcp" # Sync protocol
+      - "22000:22000/udp" # Sync protocol
+      - "21027:21027/udp" # Local discovery
+    volumes:
+      - ../../data/syncthing/data:/var/syncthing/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 64M
+        reservations:
+          cpus: '0.05'
+          memory: 32M

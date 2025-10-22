@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  paperless-ngx:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    container_name: paperless-ngx
+    restart: unless-stopped
+    environment:
+      PAPERLESS_ADMIN_USER: ${PAPERLESS_ADMIN_USER:-admin}
+      PAPERLESS_ADMIN_PASSWORD: ${PAPERLESS_ADMIN_PASSWORD:-cambia-esta-clave}
+      PAPERLESS_TIME_ZONE: ${PAPERLESS_TIME_ZONE:-America/Argentina/Buenos_Aires}
+      PAPERLESS_CONSUMPTION_DIR: /consume
+      PAPERLESS_DATA_DIR: /data
+      PAPERLESS_MEDIA_ROOT: /media
+    ports:
+      - "8082:8000"
+    volumes:
+      - ../../data/paperless/consume:/consume
+      - ../../data/paperless/data:/data
+      - ../../data/paperless/media:/media
+    deploy:
+      resources:
+        limits:
+          cpus: '0.20'
+          memory: 256M
+        reservations:
+          cpus: '0.05'
+          memory: 128M
