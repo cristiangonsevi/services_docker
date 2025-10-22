@@ -4,7 +4,7 @@ set -euo pipefail
 # --- Config (modifica si quieres) ---
 FRP_VERSION="${FRP_VERSION:-0.65.0}"
 FRP_DIST="frp_${FRP_VERSION}_linux_amd64"
-FRP_TAR_URL="${FRP_TAR_URL:-https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/${FRP_DIST}.tar.gz"}"
+FRP_TAR_URL="${FRP_TAR_URL:-https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/${FRP_DIST}.tar.gz}"
 
 INSTALL_BIN_DIR="${INSTALL_BIN_DIR:-/usr/local/bin}"
 CONFIG_DIR="${CONFIG_DIR:-/etc/frp}"
