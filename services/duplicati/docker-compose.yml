@@ -5,7 +5,7 @@ services:
     container_name: duplicati
     environment:
       - TZ=America/Argentina/Buenos_Aires
-      - DUPLICATI__WEBSERVICE_PASSWORD=tu_password_seguro
+      - DUPLICATI__WEBSERVICE_PASSWORD=${DUPLICATI_PASSWORD}
       - DUPLICATI__WEBSERVICE_INTERFACE=any
       - DUPLICATI__WEBSERVICE_ALLOWED_HOSTNAMES=localhost;duplicati.crisego.com
       # Opcional: para encriptar la base de datos
