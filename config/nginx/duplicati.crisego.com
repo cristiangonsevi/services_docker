@@ -20,8 +20,6 @@ server {
 
     ssl_certificate /etc/ssl/certs/crisego.com.crt;
     ssl_certificate_key /etc/ssl/private/crisego.com.key;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     location / {
         proxy_pass http://localhost:8200;
