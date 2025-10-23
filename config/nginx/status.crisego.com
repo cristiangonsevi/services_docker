@@ -18,9 +18,8 @@ server {
 
 
     location / {
-        proxy_pass http://localhost:8005;  # Redirige el tráfico al puerto 9090
-            proxy_pass http://localhost:3001;  # Puerto expuesto por uptimekuma en docker-compose
-            proxy_http_version 1.1;
+        proxy_pass http://localhost:3001;  # Puerto expuesto por uptimekuma en docker-compose
+        proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
