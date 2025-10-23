@@ -59,6 +59,9 @@ services:
       homeserver-network:
         ipv4_address: 172.20.0.20
 
+    ports:
+      - "8080:80"
+
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:80/alive || exit 1"]
       interval: 60s

@@ -18,15 +18,15 @@ server {
 
 
     location / {
-        proxy_pass http://localhost:8100;  # Redirige el tráfico al puerto 9090
-	proxy_http_version 1.1;
-    	proxy_set_header Upgrade $http_upgrade;
-    	proxy_set_header Connection 'upgrade';
-    	proxy_set_header Host $host;
-    	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    	proxy_set_header X-Forwarded-Proto $scheme;
-    	proxy_set_header X-Forwarded-Host $host;
-    	proxy_set_header X-Forwarded-Port $server_port;
-    	proxy_cache_bypass $http_upgrade;
+        proxy_pass http://localhost:8100;  # Puerto web de Bugsink
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Port $server_port;
+        proxy_cache_bypass $http_upgrade;
     }
 }

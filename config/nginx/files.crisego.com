@@ -18,7 +18,7 @@ server {
 
 
     location / {
-        proxy_pass http://localhost:8002;  # Redirige el tráfico al puerto 9090
+        proxy_pass http://localhost:8081;  # Puerto expuesto por filebrowser en docker-compose
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
