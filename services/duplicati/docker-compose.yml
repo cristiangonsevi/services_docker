@@ -14,7 +14,7 @@ services:
     volumes:
       - ../../data:/source           # Carpeta que quieres respaldar
       - ../../config:/data                  # Configuración y base de datos de Duplicati
-      - ../../backups:/backups              # Carpeta donde Duplicati guarda los backups
+      - ../../backups_duplicati:/backups              # Carpeta donde Duplicati guarda los backups
     ports:
       - 8200:8200                           # Interfaz web
     restart: unless-stopped
