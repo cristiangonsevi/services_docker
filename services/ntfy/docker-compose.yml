@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   ntfy:
-    image: lib/ntfy:latest
+    image: binwiederhier/ntfy:v2.14
     container_name: ntfy
     command: ["serve"]
     environment:
