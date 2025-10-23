@@ -29,6 +29,7 @@ services:
       - "${NTFY_PORT}:80"
     volumes:
       - ../../config/ntfy:/var/lib/ntfy
+      - ../../data/ntfy_cache:/var/cache/ntfy
     healthcheck:
         test: ["CMD-SHELL", "wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1"]
         interval: 60s
