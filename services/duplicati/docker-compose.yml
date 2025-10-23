@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  duplicati:
+    image: duplicati/duplicati:latest
+    container_name: duplicati
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+      - DUPLICATI__WEBSERVICE_PASSWORD=tu_password_seguro
+      - DUPLICATI__WEBSERVICE_INTERFACE=any
+      - DUPLICATI__WEBSERVICE_ALLOWED_HOSTNAMES=localhost;duplicati.crisego.com
+      # Opcional: para encriptar la base de datos
+      # - DUPLICATI__DISABLE_DB_ENCRYPTION=false
+      # - SETTINGS_ENCRYPTION_KEY=tu_clave_encriptacion
+    volumes:
+      - ../../data:/source           # Carpeta que quieres respaldar
+      - ../../config:/data                  # Configuración y base de datos de Duplicati
+      - ../../backups:/backups              # Carpeta donde Duplicati guarda los backups
+    ports:
+      - 8200:8200                           # Interfaz web
+    restart: unless-stopped
