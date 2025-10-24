@@ -59,7 +59,6 @@ services:
 
 networks:
   dbnet:
-    internal: true
 
 volumes:
   pgdata:
