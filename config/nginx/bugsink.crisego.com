@@ -13,7 +13,7 @@ server {
     server_name bugsink.crisego.com;
 
     # Ruta a los certificados SSL
-    ssl_certificate /etc/ssl/cer/crisego.com.crt;
+    ssl_certificate /etc/ssl/certs/crisego.com.crt;
     ssl_certificate_key /etc/ssl/private/crisego.com.key;
 
 
