@@ -55,6 +55,10 @@ services:
     volumes:
       - ../../data/vaultwarden:/data
 
+    networks:
+      homeserver-network:
+        ipv4_address: 172.20.0.20
+
     ports:
       - "8080:80"
 
@@ -72,3 +76,6 @@ services:
         reservations:
           cpus: '0.05'
           memory: 32M
+networks:
+  homeserver-network:
+    external: true
