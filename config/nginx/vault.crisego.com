@@ -37,7 +37,6 @@ server {
 
     location / {
         limit_req zone=one burst=5 nodelay;
-        proxy_pass http://vaultwarden-default;
         proxy_pass http://localhost:8080;  # Puerto expuesto por vaultwarden en docker-compose
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;

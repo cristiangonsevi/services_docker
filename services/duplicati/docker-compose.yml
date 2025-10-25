@@ -1,4 +1,4 @@
-version: '3.8'
+
 services:
   duplicati:
     image: duplicati/duplicati:latest
