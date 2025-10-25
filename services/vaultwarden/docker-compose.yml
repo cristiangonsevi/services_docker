@@ -53,11 +53,7 @@ services:
       - PASSWORD_ITERATIONS=200000
 
     volumes:
-      - ./data:/data
-
-    networks:
-      homeserver-network:
-        ipv4_address: 172.20.0.20
+      - ../../data/vaultwarden:/data
 
     ports:
       - "8080:80"
