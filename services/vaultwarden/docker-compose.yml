@@ -76,7 +76,3 @@ services:
         reservations:
           cpus: '0.05'
           memory: 32M
-
-networks:
-  homeserver-network:
-    external: true
